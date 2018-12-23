@@ -39,6 +39,7 @@ parts:
     build-packages:
       - build-essential
       - libgl1-mesa-dev
+      - libglu1-mesa-dev
       - mesa-common-dev
       - qttools5-dev-tools
       - qtdeclarative5-dev
