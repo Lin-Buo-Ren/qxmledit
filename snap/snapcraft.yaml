@@ -11,10 +11,14 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 icon: images/qxmledit.svg
 
 architectures:
+  - build-on: i386
+  - build-on: amd64
   # armhf Not currently buildable due to the following bug:
   # https://github.com/KhronosGroup/OpenGL-Registry/issues/162
-  - build-on: [i386, amd64, arm64, ppc64el, s390x]
-    - i386
+  #- build-on: armhf
+  - build-on: arm64
+  - build-on: ppc64el
+  - build-on: s390x
 
 apps:
   qxmledit-brlin:
