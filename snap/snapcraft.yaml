@@ -48,7 +48,7 @@ parts:
       # This _optional_ dependency isn't available in armhf architecture
       # https://packages.ubuntu.com/search?keywords=libqwtplot3d-qt5-dev&searchon=names&suite=all&section=all
       - try:
-          libqwtplot3d-qt5-dev
+          - libqwtplot3d-qt5-dev
 
       - libqt5opengl5-dev
     override-build: |
