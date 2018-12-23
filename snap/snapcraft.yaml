@@ -63,7 +63,11 @@ parts:
       - libqt5opengl5
       - libqt5printsupport5
       - libqt5xml5
-      - libqwtplot3d-qt5-0
+
+      # Optional, not available in armhf
+      - try:
+          - libqwtplot3d-qt5-0
+
       - libgcc1
       - libqt5core5a
       - libqt5gui5
