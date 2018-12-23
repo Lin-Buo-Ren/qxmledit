@@ -10,6 +10,19 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 
 icon: images/qxmledit.svg
 
+architectures:
+  - build-on:
+    - i386
+    - amd64
+
+    # Not currently buildable due to the following bug:
+    # https://github.com/KhronosGroup/OpenGL-Registry/issues/162
+    #- armhf
+
+    - arm64
+    - ppc64el
+    - s390x
+
 apps:
   qxmledit:
     command: desktop-launch $SNAP/bin/qxmledit
@@ -39,18 +52,11 @@ parts:
     build-packages:
       - build-essential
       - libgl1-mesa-dev
-      - libglu1-mesa-dev
       - mesa-common-dev
       - qttools5-dev-tools
       - qtdeclarative5-dev
       - libqt5svg5-dev
       - libqt5xmlpatterns5-dev
-
-      # This _optional_ dependency isn't available in armhf architecture
-      # https://packages.ubuntu.com/search?keywords=libqwtplot3d-qt5-dev&searchon=names&suite=all&section=all
-      - try:
-          - libqwtplot3d-qt5-dev
-
       - libqt5opengl5-dev
     override-build: |
       snapcraftctl build
@@ -64,11 +70,6 @@ parts:
       - libqt5opengl5
       - libqt5printsupport5
       - libqt5xml5
-
-      # Optional, not available in armhf
-      - try:
-          - libqwtplot3d-qt5-0
-
       - libgcc1
       - libqt5core5a
       - libqt5gui5
